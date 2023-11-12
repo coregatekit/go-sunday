@@ -38,15 +38,24 @@ func main() {
 	// 	fmt.Println(i)
 	// }
 
-	score := 8
-	switch score {
-	case 80:
-		{
-			fmt.Println("A")
-		}
-	case 70:
-		{
-			fmt.Println("B")
-		}
+	// score := 80
+	// switch score {
+	// case 80:
+	// 	{
+	// 		fmt.Println("A")
+	// 	}
+	// case 70:
+	// 	{
+	// 		fmt.Println("B")
+	// 	}
+	// }
+
+	score := 77
+	if score >= 80 {
+		fmt.Println("A")
+	} else if score < 80 && score >= 70 {
+		fmt.Println("B")
+	} else {
+		fmt.Println("unknow")
 	}
 }
