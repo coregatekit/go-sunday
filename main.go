@@ -52,8 +52,10 @@ func main() {
 	// GetMember()
 	// CheckLogin("coregate", "1234")
 
+	defer func() { // like annonymous function in js
+		fmt.Println("annonymous function")
+	}()
 	defer LogEnd()
 	GetMember()
-	CheckLogin("coregate", "123")
 	CheckServerResponse()
 }
