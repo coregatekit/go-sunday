@@ -52,10 +52,18 @@ func main() {
 	// GetMember()
 	// CheckLogin("coregate", "1234")
 
+	defer func() {
+		fmt.Println("Recovering")
+		if r := recover(); r != nil { // the function recover will print panic error without stack trace
+			fmt.Println("recover ")
+			fmt.Println(r)
+		}
+	}()
 	defer func() { // like annonymous function in js
 		fmt.Println("annonymous function")
 	}()
 	defer LogEnd()
 	GetMember()
 	CheckServerResponse()
+
 }
