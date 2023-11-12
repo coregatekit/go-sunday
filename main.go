@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// fmt.Println("enter your name: ")
 	// var txtInput string
@@ -35,4 +37,16 @@ func main() {
 	// for i := 0; i < 10; i++ {
 	// 	fmt.Println(i)
 	// }
+
+	score := 8
+	switch score {
+	case 80:
+		{
+			fmt.Println("A")
+		}
+	case 70:
+		{
+			fmt.Println("B")
+		}
+	}
 }
