@@ -2,60 +2,36 @@ package main
 
 import "fmt"
 
-func main() {
-	// fmt.Println("enter your name: ")
-	// var txtInput string
-	// txtInput := ""
-	// fmt.Scan(&txtInput)
-	// fmt.Println("" + txtInput)
+func GetMember() {
+	fmt.Println("Please wait....")
+}
 
-	// age := 2
-	// fmt.Println(reflect.TypeOf((age)))
+func IsInSystem(username string) bool {
+	return true
+}
 
-	// height := "100"
+func GetUserDetail(username string) (int, string) {
+	return 201, "manager"
+}
 
-	// // var h int
-	// // var err error
-	// h, err := strconv.Atoi(height)
-
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
-	// fmt.Println(h)
-
-	// water := "12.40"
-	// fWater, err := strconv.ParseFloat(water, 64)
-
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
-	// fmt.Println(fWater)
-
-	// txtShow := fmt.Sprintf("water = %8.2f, height = %d\n", fWater, h)
-	// fmt.Print(txtShow)
-
-	// for i := 0; i < 10; i++ {
-	// 	fmt.Println(i)
-	// }
-
-	// score := 80
-	// switch score {
-	// case 80:
-	// 	{
-	// 		fmt.Println("A")
-	// 	}
-	// case 70:
-	// 	{
-	// 		fmt.Println("B")
-	// 	}
-	// }
-
-	score := 77
-	if score >= 80 {
-		fmt.Println("A")
-	} else if score < 80 && score >= 70 {
-		fmt.Println("B")
-	} else {
-		fmt.Println("unknow")
+func getDeparture(username string, departure *string) {
+	if username != "" {
+		*departure = "home"
 	}
+}
+
+func CheckLogin(username string, password string) {
+	if IsInSystem(username) {
+		fmt.Println("found user in system.")
+		status, deatail := GetUserDetail(username)
+		fmt.Printf("status %d detail %s\n", status, deatail)
+		departure := ""
+		getDeparture(username, &departure)
+		fmt.Println(departure)
+	}
+}
+
+func main() {
+	GetMember()
+	CheckLogin("coregate", "1234")
 }
