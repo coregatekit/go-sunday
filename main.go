@@ -1,9 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func GetMember() {
 	fmt.Println("Please wait....")
+
+	time.Sleep(3 * time.Second)
 }
 
 func IsInSystem(username string) bool {
@@ -31,7 +36,24 @@ func CheckLogin(username string, password string) {
 	}
 }
 
+func CheckServerResponse() {
+	fmt.Println("check server time")
+	time.Sleep(3 * time.Second)
+	panic("server error")
+}
+
+func LogEnd() {
+	now := time.Now()
+	fmt.Println("complete program ")
+	fmt.Println(now)
+}
+
 func main() {
+	// GetMember()
+	// CheckLogin("coregate", "1234")
+
+	defer LogEnd()
 	GetMember()
-	CheckLogin("coregate", "1234")
+	CheckLogin("coregate", "123")
+	CheckServerResponse()
 }
