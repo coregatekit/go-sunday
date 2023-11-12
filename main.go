@@ -1,69 +1,17 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
-
-func GetMember() {
-	fmt.Println("Please wait....")
-
-	time.Sleep(3 * time.Second)
-}
-
-func IsInSystem(username string) bool {
-	return true
-}
-
-func GetUserDetail(username string) (int, string) {
-	return 201, "manager"
-}
-
-func getDeparture(username string, departure *string) {
-	if username != "" {
-		*departure = "home"
-	}
-}
-
-func CheckLogin(username string, password string) {
-	if IsInSystem(username) {
-		fmt.Println("found user in system.")
-		status, deatail := GetUserDetail(username)
-		fmt.Printf("status %d detail %s\n", status, deatail)
-		departure := ""
-		getDeparture(username, &departure)
-		fmt.Println(departure)
-	}
-}
-
-func CheckServerResponse() {
-	fmt.Println("check server time")
-	time.Sleep(3 * time.Second)
-	panic("server error")
-}
-
-func LogEnd() {
-	now := time.Now()
-	fmt.Println("complete program ")
-	fmt.Println(now)
-}
+import "fmt"
 
 func main() {
-	// GetMember()
-	// CheckLogin("coregate", "1234")
+	// arr := []int{2, 4, 4, 5}
+	arr := make([]int, 4) // create empty array of int with size 4
+	arr[0] = 30
+	arr[2] = 50
+	fmt.Println(arr)
 
-	defer func() {
-		fmt.Println("Recovering")
-		if r := recover(); r != nil { // the function recover will print panic error without stack trace
-			fmt.Println("recover ")
-			fmt.Println(r)
-		}
-	}()
-	defer func() { // like annonymous function in js
-		fmt.Println("annonymous function")
-	}()
-	defer LogEnd()
-	GetMember()
-	CheckServerResponse()
-
+	txt := "today is sunday"
+	// slice
+	fmt.Println(txt[0:5])
+	fmt.Println(arr[0:1])
+	fmt.Println(len(txt))
 }
